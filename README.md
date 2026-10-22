@@ -17,7 +17,7 @@ sandbox zet waarin de camera niet werkt.
 
 ## Lokaal ontwikkelen
 
-Vereist Node 22.12 of nieuwer.
+Vereist Node 22 (vastgezet in `package.json` en `.nvmrc`; met nvm: `nvm use`).
 
 ```sh
 cp .env.example .env   # vul de waarden in
