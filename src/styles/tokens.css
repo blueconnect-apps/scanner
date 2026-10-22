@@ -1,0 +1,36 @@
+/* BlueWay Design System: tokens en regels (oranje alleen als signaal, koppen teal, lijnen teal met lage dekking). */
+:root {
+  --bw-bg: #FAFAF8;
+  --bw-white: #FFFFFF;
+  --bw-text: #1A1A18;
+  --bw-ink-70: rgba(26, 26, 24, .70);
+  --bw-ink-50: rgba(26, 26, 24, .50);
+
+  --bw-teal-dark: #00587C;
+  --bw-teal-dark-hover: #004A69;
+  --bw-blue: #00B5E2;
+  --bw-blue-soft: #E8F8FD;
+  --bw-orange: #FF8C00;
+  --bw-orange-hover: #E87D00;
+
+  --bw-line: rgba(0, 88, 124, .12);
+  --bw-line-strong: rgba(0, 88, 124, .24);
+  --bw-surface-sunken: #F2F4F3;
+
+  --bw-success: #1F8A5B;
+  --bw-success-soft: #E6F4ED;
+  --bw-warning-soft: #FFF1DF;
+  --bw-warning-text: #8A4B00;
+  --bw-danger: #C7362B;
+  --bw-danger-soft: #FBEBE9;
+
+  --bw-radius-sm: 8px;
+  --bw-radius: 10px;
+  --bw-radius-lg: 12px;
+  --bw-shadow-sm: 0 1px 2px rgba(0, 0, 0, .05);
+  --bw-focus-ring: 0 0 0 3px rgba(0, 181, 226, .40);
+  --bw-duration: 180ms;
+  --bw-ease: cubic-bezier(.2, 0, .2, 1);
+
+  --bw-font: "DM Sans", Carlito, Calibri, "Segoe UI", -apple-system, sans-serif;
+}
