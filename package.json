@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "rm -rf dist && cp -r scanner-app-v3 dist",
+    "build": "rm -rf dist && mkdir dist && cp -r index.html assets dist/",
     "preview": "vite preview"
   },
   "dependencies": {
