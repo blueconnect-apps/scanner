@@ -1,0 +1,80 @@
+/* CSU scanner-app v3 – huisstijl Total Care (20-11-2026)
+   Kleuren: donkerblauw #023c4a, lichtgroen-grijs #c1d7d1, perzik #f2c8ad (hoofdactie), wit.
+   Lettertype: Neue Haas Grotesk is gelicentieerd; op het web Arial (secundair lettertype in de huisstijl).
+   Afgeronde blokken: radius ongeveer 4/5 van de grootste letter in het blok. */
+:root{
+  --tc-blauw:#023c4a; --tc-groen:#c1d7d1; --tc-groen-zacht:#e8f0ee; --tc-perzik:#f2c8ad; --tc-perzik-hover:#ecb895; --tc-wit:#fff;
+  --tc-bg:#f5f8f7; --tc-tekst:#023c4a; --tc-tekst-70:#023c4ab8; --tc-lijn:#023c4a1f; --tc-lijn-sterk:#023c4a40;
+  --tc-goed:#2b7a57; --tc-goed-zacht:#e3f1ea; --tc-let:#7a4520; --tc-let-zacht:#fcefe5; --tc-fout:#b3362c; --tc-fout-zacht:#fbeceb;
+  --tc-r-sm:12px; --tc-r:14px; --tc-r-lg:16px; --tc-schaduw:0 1px 3px #023c4a14; --tc-focus:0 0 0 3px #f2c8adcc;
+  --tc-duur:.18s; --tc-ease:cubic-bezier(.2,0,.2,1); --tc-font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;padding:0;background:var(--tc-bg);color:var(--tc-tekst);font-family:var(--tc-font);font-size:16px;line-height:1.4}
+.topbalk{display:none}
+
+/* Kop: donkerblauw blok tegen de bovenrand, alleen de onderhoeken afgerond */
+header{background:var(--tc-blauw);color:var(--tc-wit);padding:16px 16px 18px;border-radius:0 0 var(--tc-r-lg) var(--tc-r-lg);margin-bottom:14px}
+.logo{display:block;height:24px;width:auto;margin:0 0 12px}
+.eyebrow{color:var(--tc-groen);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+h1{margin:2px 0 0;font-size:22px;font-weight:700;line-height:1.2;letter-spacing:.02em;color:var(--tc-wit)}
+.sub{margin-top:6px;font-size:14px;color:#ffffffd1}
+.veldlabel{display:block;margin-top:10px;font-size:13px;font-weight:700;color:var(--tc-groen)}
+select{width:100%;margin-top:4px;font:inherit;font-size:17px;font-weight:700;color:var(--tc-blauw);background:var(--tc-wit);border:0;border-radius:var(--tc-r-sm);padding:11px 12px}
+select:focus-visible{outline:none;box-shadow:var(--tc-focus)}
+
+.laden{margin:16px;color:var(--tc-tekst-70)}
+.foutblok{margin:16px;padding:12px 14px;border-radius:var(--tc-r);background:var(--tc-fout-zacht);color:var(--tc-fout);border:1px solid #b3362c4d;font-weight:700}
+.proef{margin:0 16px 12px;padding:9px 12px;border-radius:var(--tc-r-sm);background:var(--tc-let-zacht);color:var(--tc-let);border:1px solid var(--tc-perzik);font-size:14px}
+.kies{margin:0 16px 24px;padding:14px 16px;border-radius:var(--tc-r);background:var(--tc-groen-zacht);border:1px solid var(--tc-groen);color:var(--tc-blauw);font-weight:700}
+
+/* Camera */
+.camera{position:relative;overflow:hidden;width:calc(100% - 32px);max-width:58vh;aspect-ratio:1;margin:0 auto;border-radius:var(--tc-r-lg);background:var(--tc-blauw);box-shadow:var(--tc-schaduw)}
+video{display:block;width:100%;height:100%;object-fit:cover}
+.kader{position:absolute;inset:16%;border:3px solid var(--tc-perzik);border-radius:16px;pointer-events:none;box-shadow:0 0 0 999px #023c4a59}
+.camfout{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center;background:var(--tc-blauw);color:#ffffffd9}
+.camtekst{color:var(--tc-wit)}
+
+/* Startscherm in InSite */
+.starter{margin:0 16px 24px;padding:28px 20px;text-align:center;background:var(--tc-wit);border:1px solid var(--tc-groen);border-radius:var(--tc-r-lg);box-shadow:var(--tc-schaduw)}
+.starter-icoon{display:flex;align-items:center;justify-content:center;width:64px;height:64px;margin:0 auto 12px;border-radius:50%;background:var(--tc-groen-zacht);color:var(--tc-blauw)}
+.starter h2{margin:0 0 8px;font-size:20px;font-weight:700;color:var(--tc-blauw)}
+.starter p{max-width:420px;margin:0 auto 18px}
+.starter .klein{margin:14px auto 0;font-size:14px;color:var(--tc-tekst-70)}
+
+/* Resultaat van de laatste scan */
+.resultaat{margin:12px 16px;padding:14px 16px;min-height:76px;background:var(--tc-wit);border:1px solid var(--tc-lijn);border-radius:var(--tc-r);box-shadow:var(--tc-schaduw)}
+.resultaat .kop{font-size:17px;font-weight:700;color:var(--tc-blauw)}
+.resultaat .naam{margin-top:3px}
+.resultaat.ok{background:var(--tc-goed-zacht);border-color:#2b7a5759}.resultaat.ok .kop{color:var(--tc-goed)}
+.resultaat.let{background:var(--tc-let-zacht);border-color:var(--tc-perzik)}.resultaat.let .kop{color:var(--tc-let)}
+.resultaat.fout{background:var(--tc-fout-zacht);border-color:#b3362c4d}.resultaat.fout .kop{color:var(--tc-fout)}
+
+/* Teller */
+.teller{margin:0 16px 12px;padding:12px 16px;background:var(--tc-wit);border:1px solid var(--tc-lijn);border-radius:var(--tc-r);box-shadow:var(--tc-schaduw)}
+.telregel{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.telgetal{font-size:30px;font-weight:700;line-height:1.1;color:var(--tc-blauw);font-variant-numeric:tabular-nums}
+.telvan{font-size:16px;color:var(--tc-tekst-70);font-variant-numeric:tabular-nums}
+.telbalk{height:8px;margin-top:8px;overflow:hidden;border-radius:4px;background:var(--tc-groen-zacht)}
+.telbalk i{display:block;height:100%;width:0;background:var(--tc-blauw);transition:width var(--tc-duur) var(--tc-ease)}
+
+/* Knoppen: perzik voor de hoofdactie, omlijnd donkerblauw voor de rest */
+.acties{display:flex;flex-wrap:wrap;gap:8px;margin:0 16px}
+button{font:inherit;font-size:15px;font-weight:700;padding:10px 18px;cursor:pointer;color:var(--tc-blauw);background:transparent;border:2px solid var(--tc-blauw);border-radius:var(--tc-r-sm);transition:background var(--tc-duur) var(--tc-ease)}
+button:hover{background:var(--tc-groen-zacht)}
+button:focus-visible,input:focus-visible{outline:none;box-shadow:var(--tc-focus)}
+button.primair{background:var(--tc-perzik);border-color:var(--tc-perzik);color:var(--tc-blauw)}
+button.primair:hover{background:var(--tc-perzik-hover);border-color:var(--tc-perzik-hover)}
+button.groot{width:100%;max-width:320px;padding:14px 32px;font-size:17px}
+.camfout button:not(.primair){color:var(--tc-wit);border-color:var(--tc-groen)}
+.camfout button:not(.primair):hover{background:#ffffff1a}
+
+/* Zoeken op naam */
+.zoek{margin:10px 16px 24px}
+.zoek input{width:100%;font:inherit;padding:10px 12px;color:var(--tc-tekst);background:var(--tc-wit);border:1px solid var(--tc-lijn-sterk);border-radius:var(--tc-r-sm)}
+.zoek ul{margin:6px 0 0;padding:0;list-style:none;max-height:40vh;overflow:auto;background:var(--tc-wit);border:1px solid var(--tc-lijn);border-radius:var(--tc-r)}
+.zoek li{padding:11px 12px;border-bottom:1px solid var(--tc-lijn);cursor:pointer}
+.zoek li:hover{background:var(--tc-groen-zacht)}
+.zoek li:last-child{border-bottom:0}
+.zoek li.leeg{color:var(--tc-tekst-70);cursor:default}.zoek li.leeg:hover{background:transparent}
+.zoek li .st{font-size:14px;color:var(--tc-goed)}
