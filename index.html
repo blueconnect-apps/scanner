@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://blueway.n8p1.hostingsecure.com; base-uri 'none'; form-action 'none'">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#00587C">
+  <meta name="theme-color" content="#023c4a">
   <title>Scanner evenement</title>
-  <script type="module" src="/src/main.js"></script>
+  <link rel="stylesheet" href="./assets/scanner.css">
 </head>
 <body>
   <div class="topbalk"></div>
@@ -16,16 +17,16 @@
   <!-- Startscherm in het InSite-kader: daar mag de camera niet, dus alleen een knop naar een eigen tabblad. -->
   <div id="starter" hidden>
     <header>
+      <img class="logo" src="./assets/totalcare-logo-wit.png" alt="Total Care">
       <div class="eyebrow">Scanner evenement</div>
-      <h1 id="startertitel"></h1>
+      <h1>QR-codes scannen</h1>
       <div class="sub" id="startersub"></div>
     </header>
     <div class="starter">
       <div class="starter-icoon" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></svg>
       </div>
-      <h2>QR-codes scannen</h2>
-      <p id="startertekst">Scan met de camera van je telefoon de QR-code die deelnemers in AFAS Pocket laten zien. Ze worden direct op aanwezig gezet.</p>
+      <p id="startertekst">Kies in de scanner het evenement en scan met de camera van je telefoon de QR-code uit de uitnodiging of mail van de deelnemer. De deelnemer wordt direct op aanwezig gezet.</p>
       <button class="primair groot" id="openscanner" type="button">Open de scanner</button>
       <p class="klein" id="starterhint">De scanner opent in een nieuw tabblad. Je hoeft niet opnieuw in te loggen.</p>
     </div>
@@ -34,34 +35,45 @@
   <!-- Scanner in een eigen tabblad. -->
   <div id="app" hidden>
     <header>
+      <img class="logo" src="./assets/totalcare-logo-wit.png" alt="Total Care">
       <div class="eyebrow">Scanner evenement</div>
-      <h1 id="titel"></h1>
+      <label class="veldlabel" for="evenement">Evenement</label>
+      <select id="evenement"></select>
       <div class="sub" id="sub"></div>
     </header>
     <div class="proef" id="proef" hidden>Proefmodus: scans worden gecontroleerd, maar nog niet in AFAS op aanwezig gezet.</div>
-    <div class="camera">
-      <video id="video" playsinline muted autoplay></video>
-      <div class="kader"></div>
-      <div class="camfout" id="camfout" hidden>
-        <div class="camtekst" id="camtekst">De camera kan hier niet worden geopend.</div>
-        <button class="primair" id="nieuwvenster" type="button">Open de scanner</button>
-        <button id="opnieuw" type="button">Camera opnieuw proberen</button>
+    <div class="kies" id="kies" hidden>Kies bovenin het evenement waarvoor je scant.</div>
+
+    <div id="scanblok" hidden>
+      <div class="camera">
+        <video id="video" playsinline muted autoplay></video>
+        <div class="kader"></div>
+        <div class="camfout" id="camfout" hidden>
+          <div class="camtekst" id="camtekst">De camera kan hier niet worden geopend.</div>
+          <button class="primair" id="nieuwvenster" type="button">Open de scanner</button>
+          <button id="opnieuw" type="button">Camera opnieuw proberen</button>
+        </div>
+      </div>
+      <div class="resultaat" id="resultaat" aria-live="polite">
+        <div class="kop">Klaar om te scannen</div>
+        <div class="naam">Houd de QR-code uit de uitnodiging of mail in het kader.</div>
+      </div>
+      <div class="teller" id="teller" aria-live="polite">
+        <div class="telregel"><span class="telgetal" id="aanwezig">0</span> <span class="telvan">van <span id="totaal">0</span> aanwezig</span></div>
+        <div class="telbalk"><i id="telbalk"></i></div>
+      </div>
+      <div class="acties">
+        <button type="button" id="zoekknop">Zoek op naam</button>
+        <button type="button" id="wissel" hidden>Andere camera</button>
+      </div>
+      <div class="zoek" id="zoek" hidden>
+        <input id="zoekveld" type="search" placeholder="Typ een naam" autocomplete="off">
+        <ul id="zoeklijst"></ul>
       </div>
     </div>
-    <div class="resultaat" id="resultaat" aria-live="polite">
-      <div class="kop">Klaar om te scannen</div>
-      <div class="naam">Houd de QR-code uit AFAS Pocket in het kader.</div>
-    </div>
-    <div class="acties">
-      <button type="button" id="zoekknop">Zoek op naam</button>
-      <button type="button" id="wissel" hidden>Andere camera</button>
-    </div>
-    <div class="zoek" id="zoek" hidden>
-      <input id="zoekveld" type="search" placeholder="Typ een naam" autocomplete="off">
-      <ul id="zoeklijst"></ul>
-    </div>
-    <div class="teller" id="teller"></div>
-    <ul class="log" id="log"></ul>
   </div>
+
+  <script src="./assets/jsQR.js"></script>
+  <script src="./assets/scanner.js"></script>
 </body>
 </html>
